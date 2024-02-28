@@ -7,6 +7,8 @@ app = Tk()
 app.geometry("400x400")
 
 array1 = np.zeros((400,400))
+xcoordlist = []
+ycoordlist = []
 
 def get_x_and_y(event):
     global lasx, lasy
@@ -14,10 +16,12 @@ def get_x_and_y(event):
 
 def draw_smth(event):
     global lasx, lasy
+    xcoordlist.append(lasx)
+    ycoordlist.append(lasy)
     canvas.create_line((lasx, lasy, event.x, event.y), fill='black', width=2)
     lasx, lasy = event.x, event.y
     array1[event.x,event.y] = 1
-    print(event.x,event.y)
+    #print(event.x,event.y)
 
 
 def plot_binary_array(array):
@@ -27,6 +31,8 @@ def plot_binary_array(array):
 
 def on_close():
     plot_binary_array(array1)
+    print(xcoordlist)
+    print(ycoordlist)
     app.destroy()
 
 
