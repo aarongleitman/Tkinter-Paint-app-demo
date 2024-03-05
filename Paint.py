@@ -42,7 +42,7 @@ canvas.pack(anchor='nw', fill='both', expand=1)
 canvas.bind("<Button-1>", get_x_and_y)
 canvas.bind("<B1-Motion>", draw_smth)
 
-image = Image.open("image.jpg")
+image = Image.open("currentimage.jpg")
 image = image.resize((400,400))
 image = ImageTk.PhotoImage(image)
 canvas.create_image(0,0, image=image, anchor='nw')
