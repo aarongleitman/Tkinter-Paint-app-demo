@@ -23,7 +23,6 @@ def draw_smth(event):
     array1[event.x,event.y] = 1
     #print(event.x,event.y)
 
-
 def plot_binary_array(array):
     plt.imshow(np.rot90(np.rot90(np.rot90(np.flip(array,0)))), cmap='binary', interpolation='nearest')
     plt.axis('off')
@@ -31,8 +30,10 @@ def plot_binary_array(array):
 
 def on_close():
     plot_binary_array(array1)
-    print(xcoordlist)
-    print(ycoordlist)
+    xcoord8k = [num * 20 for num in xcoordlist]
+    ycoord8k = result_list = [num * 20 for num in ycoordlist]
+    print(xcoord8k)
+    print(ycoord8k)
     app.destroy()
 
 
